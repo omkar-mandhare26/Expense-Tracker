@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expense Tracker</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/addstyles.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="#" class="project-name">Expense Tracker</a>
+            </div>
+            <div class="navbar-right">
+                <a href="/" class="nav-link">Look Expenses</a>
+                <a href="#" class="nav-link">Add Expenses</a>
+            </div>
+        </nav>
+        <div id="getExpenses">
+            <input type="text" name="name" id="name" placeholder="Enter Name" />
+            <input type="number" name="price" id="price" placeholder="Enter Price" /><br />
+            <button id="submitbtn">Add Expense</button>
+        </div>
+        <script src="{{ url_for('static', filename='js/addscript.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expense Tracker</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyles.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="/" class="project-name">Expense Tracker</a>
+            </div>
+            <div class="navbar-right">
+                <a href="/" class="nav-link">Look Expenses</a>
+                <a href="/addpositions" class="nav-link">Add Expenses</a>
+            </div>
+        </nav>
+        <div id="displayExpenses">
+            <table border="1" class="displayTable">
+                <thead>
+                    <tr>
+                        <th class="name">Name</th>
+                        <th class="amount">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if data %} {% for expense in data %}
+                    <tr>
+                        <td class="name">{{ expense.name }}</td>
+                        <td class="amount">{{ expense.amount }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="totalcolumn">
+                        <td class="name">Total</td>
+                        <td class="amount">{{ total_amount }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="2">No Expenses</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <button id="delete">Delete All</button>
+        </div>
+
+        <script src="{{ url_for('static', filename='js/indexscript.js') }}"></script>
+    </body>
+</html>
